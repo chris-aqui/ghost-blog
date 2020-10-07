@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import styles from '../../styles/Home.module.scss';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import DefaultErrorPage from 'next/error';
+import styles from '../../styles/Home.module.scss';
 
 const { BLOG_URL, CONTENT_API_KEY } = process.env;
 
@@ -72,13 +74,18 @@ const Post: React.FC<{ post: Post }> = (props) => {
 		document.body.appendChild(script);
 	}
 
-	console.log('post title ', post.title);
-	console.log('post slug', post.slug);
-	console.log('post html', post.html);
-	console.log('post image', post.feature_image);
-	console.log('post custom_excerpt', post.custom_excerpt);
-	console.log('post reading_time', post.reading_time);
-	// console.log('post title', post);
+	// This includes setting the noindex header because static files always return
+	// a status 200 but the rendered not found page page should obviously not be indexed
+	if (!post) {
+		return (
+			<>
+				<Head>
+					<meta name='robots' content='noindex' />
+				</Head>
+				<DefaultErrorPage statusCode={404} />
+			</>
+		);
+	}
 
 	return (
 		<div className={styles.container}>
