@@ -35,7 +35,7 @@ export const getStaticPaths = () => {
 	// fallback ->
 	return {
 		paths: [],
-		fallback: true,
+		fallback: false,
 	};
 };
 
