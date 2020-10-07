@@ -55,9 +55,6 @@ const Home: React.FC<{ posts: Post[] }> = (props) => {
 								<a>{post.title}</a>
 							</Link>
 						</div>
-						{/* <Link href='/post/[slug]' as={`/post/${post.slug}`}>
-							<a>{post.title}</a>
-						</Link> */}
 					</div>
 				);
 			})}
@@ -66,16 +63,3 @@ const Home: React.FC<{ posts: Post[] }> = (props) => {
 };
 
 export default Home;
-
-{
-	/* <div class="card">
-<div class="card__image-holder">
-	<img class="card__image" src={post.feature_image} alt="wave" />
-</div>
-<div class="card-title">
-<Link href='/post/[slug]' as={`/post/${post.slug}`}>
-							<a>{post.title}</a>
-						</Link>
-</div>
-</div> */
-}
