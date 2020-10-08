@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+:root {
+	--main-bg-color: rgb(255, 255, 240);
+	--main-title-color: rgb(0, 128, 128);
+	--secondary-title-color: rgb(255, 140, 0);
+}
+
 html,
 body {
 	padding: 0;
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	background-color: var(--main-bg-color);
 }
 
 a {
@@ -16,9 +25,9 @@ a {
 	// max-width: 100%;
 }
 
-img {
-	height: auto;
-}
+// img {
+// 	height: auto;
+// }
 
 #disqus_thread {
 	width: 100%;
@@ -52,6 +61,41 @@ img {
 	}
 }
 
-.img.card__image {
-	width: 100%;
+.card__image {
+	width: 330px;
+	height: 200px;
+}
+
+.main-title {
+	font-family: 'Permanent Marker', cursive;
+	font-size: 62px;
+	padding: 10px;
+	// background-color: var(--main-title-color);
+	color: var(--secondary-title-color);
+	/* overflow: hidden; */
+	background: linear-gradient(-45deg, #006167, #00828a, #00a3ad, #66c7cd);
+	// background-size: 400% 400%;
+	animation: Gradient 15s ease infinite;
+}
+.title::after {
+	border-radius: 0 0 300px 300px;
+	box-shadow: 0 0 25px var(--main-title-color);
+}
+
+.kg-image {
+	max-width: 800px;
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
 }
