@@ -42,20 +42,25 @@ const Home: React.FC<{ posts: Post[] }> = (props) => {
 
 	return (
 		<div className={styles.container}>
-			<h1 className='title'>Welcome to the blog</h1>
+			<h1 className='main-title'>Welcome to the blog</h1>
 			<div className={styles.content}>
 				{posts.map((post, index) => {
 					const postImage = post.feature_image || '/fallback-image.jpg';
 					return (
 						<div className={styles.postitem} key={post.slug}>
 							<div className='card__image-holder'>
-								<img className='card__image' src={postImage} alt='wave' />
+								<Link href='/post/[slug]' as={`/post/${post.slug}`}>
+									<img className='card__image' src={postImage} alt='wave' />
+								</Link>
 							</div>
 							<div className='card-title'>
 								<Link href='/post/[slug]' as={`/post/${post.slug}`}>
 									<a>{post.title}</a>
 								</Link>
-								<p>{moment(post.published_at).format('YYYY-MM-DD')}</p>
+								<p>
+									<strong>Post Date: </strong>
+									{moment(post.published_at).format('YYYY-MM-DD')}
+								</p>
 							</div>
 						</div>
 					);
