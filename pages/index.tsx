@@ -13,13 +13,6 @@ type Post = {
 };
 
 async function getPosts() {
-	// curl ""
-
-	const resTest = await fetch(
-		`${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}`
-	).then((res) => res.json());
-	console.log('resTest ', resTest);
-
 	const res = await fetch(
 		`${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=title,slug,custom_excerpt,feature_image,url,reading_time,published_at`
 	).then((res) => res.json());
